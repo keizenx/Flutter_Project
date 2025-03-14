@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'login.dart'; // Importe la page de login
 
 void main() {
   runApp(const FigmaToCodeApp());
 }
 
-// Main application widget
 class FigmaToCodeApp extends StatelessWidget {
   const FigmaToCodeApp({super.key});
 
@@ -14,12 +14,11 @@ class FigmaToCodeApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       ),
-      home: const SplashScreen(),
+      home: const SplashScreen(), // Démarre avec le splash
     );
   }
 }
 
-// Splash screen widget
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -35,7 +34,6 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Welcome text
               const Text(
                 'WELCOME\nTO\nSHOPPERS',
                 textAlign: TextAlign.center,
@@ -46,8 +44,7 @@ class SplashScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 20), // Space between text and image
-              // Image container
+              const SizedBox(height: 20),
               Container(
                 width: 264,
                 height: 440,
@@ -55,6 +52,31 @@ class SplashScreen extends StatelessWidget {
                   image: DecorationImage(
                     image: AssetImage('images/panier.png'),
                     fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: const Text(
+                  'COMMENCER',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

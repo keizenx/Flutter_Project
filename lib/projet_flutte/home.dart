@@ -1,509 +1,174 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const FigmaToCodeApp());
-}
-
-class FigmaToCodeApp extends StatelessWidget {
-  const FigmaToCodeApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: Scaffold(
-        body: ListView(children: [
-          Home(),
-        ]),
-      ),
-    );
-  }
-}
-
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 390,
-          height: 844,
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(color: Colors.white),
-          child: Stack(
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(color: Colors.white),
+        child: SingleChildScrollView(
+          child: Column(
             children: [
-              Positioned(
-                left: 0,
-                top: 0,
-                child: Container(
-                  width: 390,
-                  height: 70,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 109,
-                top: 16,
-                child: Text(
-                  'SHOPPERS',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 32,
-                top: 132,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+              Container(
+                width: double.infinity,
+                height: 70,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x3F000000),
+                      blurRadius: 4,
+                      offset: Offset(0, 4),
+                      spreadRadius: 0,
                     ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
+                  ],
                 ),
-              ),
-              Positioned(
-                left: 214,
-                top: 132,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 43,
-                top: 132,
-                child: Container(
-                  width: 111,
-                  height: 112,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
+                child: const Center(
+                  child: Text(
+                    'SHOPPERS',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 32,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ),
-              Positioned(
-                left: 225,
-                top: 132,
-                child: Container(
-                  width: 111,
-                  height: 112,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
-                    ),
+              const SizedBox(height: 62),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildProductCard('Adidas Shoe', 'Rs. 20000.00', 'images/shoe.png'),
+                  buildProductCard('Smart Watch', 'Rs. 5000.00', 'images/shoe.png'),
+                ],
+              ),
+              const SizedBox(height: 37),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildProductCard('Adidas Shoe', 'Rs. 20000.00', 'images/shoe.png'),
+                  buildProductCard('Adidas Shoe', 'Rs. 20000.00', 'images/shoe.png'),
+                ],
+              ),
+              const SizedBox(height: 37),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildProductCard('Adidas Shoe', 'Rs. 20000.00', 'images/shoe.png'),
+                  buildProductCard('Adidas Shoe', 'Rs. 20000.00', 'images/shoe.png'),
+                ],
+              ),
+              const SizedBox(height: 67),
+              Container(
+                width: double.infinity,
+                height: 64,
+                decoration: const ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: Color(0xFFD2CECE)),
                   ),
                 ),
-              ),
-              const Positioned(
-                left: 59,
-                top: 248,
-                child: Text(
-                  'Adidas Shoe',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 241,
-                top: 248,
-                child: Text(
-                  'Smart Watch',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 59,
-                top: 269,
-                child: Text(
-                  'Rs. 20000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 241,
-                top: 269,
-                child: Text(
-                  'Rs. 5000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 32,
-                top: 338,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 214,
-                top: 338,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 32,
-                top: 338,
-                child: Container(
-                  width: 134,
-                  height: 112,
-                  decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("images/shoe.png"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 225,
-                top: 338,
-                child: Container(
-                  width: 111,
-                  height: 112,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('images/shoe.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 59,
-                top: 454,
-                child: Text(
-                  'Adidas Shoe',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 241,
-                top: 454,
-                child: Text(
-                  'Adidas Shoe',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 59,
-                top: 475,
-                child: Text(
-                  'Rs. 20000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 241,
-                top: 475,
-                child: Text(
-                  'Rs. 20000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 37,
-                top: 544,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("images/shoe.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 219,
-                top: 544,
-                child: Container(
-                  width: 134,
-                  height: 169,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 48,
-                top: 544,
-                child: Container(
-                  width: 111,
-                  height: 112,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 230,
-                top: 544,
-                child: Container(
-                  width: 111,
-                  height: 112,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/adidas_shoe_1.png"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 64,
-                top: 660,
-                child: Text(
-                  'Adidas Shoe',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 246,
-                top: 660,
-                child: Text(
-                  'Adidas Shoe',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 64,
-                top: 681,
-                child: Text(
-                  'Rs. 20000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Positioned(
-                left: 246,
-                top: 681,
-                child: Text(
-                  'Rs. 20000.00',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 0,
-                top: 780,
-                child: Container(
-                  width: 390,
-                  height: 64,
-                  decoration: const ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Color(0xFFD2CECE)),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 48,
-                top: 798,
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/icon_home.png"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 180,
-                top: 798,
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('images/shoe.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 312,
-                top: 798,
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/shoe.png"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  ],
                 ),
               ),
             ],
           ),
         ),
-      ],
+      ),
+    );
+  }
+
+  Widget buildProductCard(String title, String price, String imagePath) {
+    return Container(
+      width: 134,
+      height: 169,
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        shadows: const [
+          BoxShadow(
+            color: Color(0x3F000000),
+            blurRadius: 4,
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Container(
+            width: 111,
+            height: 112,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(imagePath),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            price,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
