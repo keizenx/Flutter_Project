@@ -6,7 +6,7 @@ class BusRoute {
   final DateTime arrivalTime;
   final double price;
   final String busCompany;
-  final String busType;
+  final String busType; // Type de bus (ex: Standard, VIP, Express)
   final int availableSeats;
   final List<String> amenities;
   final double rating;
